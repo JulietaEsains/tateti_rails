@@ -44,6 +44,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:access_token, :board, :winner)
+      params.require(:game).permit(:id, :access_token, :board, :x_is_next, :winner)
     end
 end

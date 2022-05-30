@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
     # Relaciones
-    belongs_to :playerX, class_name: 'Player'
-    belongs_to :playerO, class_name: 'Player'
+    belongs_to :player_x, class_name: 'Player'
+    belongs_to :player_o, class_name: 'Player'
 
     # Validación
     validates :access_token, uniqueness: true

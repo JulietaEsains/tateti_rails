@@ -3,10 +3,10 @@ class CreateGames < ActiveRecord::Migration[7.0]
     create_table :games do |t|
       t.string :access_token
       t.string :board, array: true
-      t.boolean :xIsNext, default: true
+      t.boolean :x_is_next, default: true
       t.string :winner
-      t.belongs_to :playerX, class_name: 'Player'
-      t.belongs_to :playerO, class_name: 'Player'
+      t.belongs_to :player_x, class_name: 'Player'
+      t.belongs_to :player_o, class_name: 'Player'
 
       t.timestamps
     end
