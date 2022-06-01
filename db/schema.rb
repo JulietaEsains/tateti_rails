@@ -14,13 +14,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_113314) do
   create_table "games", force: :cascade do |t|
     t.string "access_token"
     t.string "board"
+    t.boolean "x_is_next"
+    t.string "status"
     t.string "winner"
-    t.integer "playerX_id"
-    t.integer "playerO_id"
+    t.integer "player_x_id"
+    t.integer "player_o_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playerO_id"], name: "index_games_on_playerO_id"
-    t.index ["playerX_id"], name: "index_games_on_playerX_id"
+    t.index ["player_o_id"], name: "index_games_on_player_o_id"
+    t.index ["player_x_id"], name: "index_games_on_player_x_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -29,4 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_113314) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "games", "player_os"
+  add_foreign_key "games", "player_xes"
 end
