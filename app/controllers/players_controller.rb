@@ -36,7 +36,7 @@ class PlayersController < ApplicationController
   # DELETE /players/1
   def destroy
     if @player.destroy
-      render status: 200, json: {message: 'Jugador borrado correctamente.'}
+      render status: 200, json: {message: "Jugador borrado correctamente."}
     else 
       render status: 400, json: {message: @player.errors.details}
     end
@@ -47,7 +47,7 @@ class PlayersController < ApplicationController
       @player = Player.find_by(id: params[:id])
       return if @player.present?
 
-      render status: 404, json: {message: 'No se encontró el jugador.'}
+      render status: 404, json: {message: "No se encontró el jugador."}
       false
     end
 
@@ -58,7 +58,7 @@ class PlayersController < ApplicationController
     def check_token
       return if request.headers["Authorization"] == "Bearer #{@player.access_token}"
   
-      render status: 401, json: {message: "No coincide el token de autenticación"}
+      render status: 401, json: {message: "No coincide el token de autenticación."}
       false
     end
 end

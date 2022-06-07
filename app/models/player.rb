@@ -1,7 +1,7 @@
 class Player < ApplicationRecord
     # Relaciones
-    has_many :played_as_x_games, class_name: 'Game', dependent: :destroy
-    has_many :played_as_o_games, class_name: 'Game', dependent: :destroy
+    has_many :played_as_x_games, class_name: "Game", foreign_key: "player_x_id", dependent: :destroy
+    has_many :played_as_o_games, class_name: "Game", foreign_key: "player_o_id", dependent: :destroy
 
     # Validaciones
     validates :name, presence: true
